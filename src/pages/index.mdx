@@ -1,0 +1,48 @@
+---
+title: Introdução
+---
+
+# MindHub
+
+## O que é
+
+O aplicativo MindHub é uma plataforma abrangente e acessível a estudantes de todos os níveis educacionais. Nosso objetivo central é fornecer uma solução completa para aprimorar a experiência de aprendizado dos estudantes.
+
+Ao oferecer um espaço interativo e colaborativo, buscamos não apenas facilitar a resolução de dúvidas, mas também promover a troca de conhecimento entre os membros da comunidade.
+
+## Sobre o projeto
+
+Esse projeto é o trabalho da disciplina de **Projeto Integrado em Engenharia de Software III** da Universidade Federal do Ceará, campus Quixadá.
+
+## Membros da equipe
+
+export const MemberCard = ({ name, githubUrl }) => (
+    <div
+        style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "10px",
+        }}
+    >
+        <img
+            src={`${githubUrl}.png`}
+            style={{
+                width: "100px",
+                borderRadius: "50%",
+            }}
+        />
+        <a href={githubUrl}>{ name }</a>
+    </div>
+);
+
+<div style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    padding: "50px",
+}}>
+    <MemberCard name="Antônio Hugo" githubUrl="https://github.com/hugorplobo" />
+    <MemberCard name="Felipe Freitag" githubUrl="https://github.com/freitagfelipe" />
+    <MemberCard name="Henok Teixeira" githubUrl="https://github.com/henoktx" />
+</div>
