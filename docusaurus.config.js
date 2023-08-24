@@ -14,11 +14,11 @@ const config = {
   url: "https://grupo-bala.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often "/<projectName>/"
-  baseUrl: "/minhub-docs/",
+  baseUrl: "/mindhub-docs/",
 
   // GitHub pages deployment config.
   // If you aren"t using GitHub pages, you don"t need these.
-  organizationName: "Grupo Bala", // Usually your GitHub org/user name.
+  organizationName: "grupo-bala", // Usually your GitHub org/user name.
   projectName: "mindhub-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
