@@ -94,7 +94,7 @@ const config = {
             items: [
               {
                 label: "Documentação",
-                to: "/docs/visao-e-escopo",
+                to: "/docs/Documentos/documento-de-visao-e-escopo",
               },
             ],
           },
