@@ -90,16 +90,7 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
-            items: [
-              {
-                label: "Documentação",
-                to: "/docs/Documentos/documento-de-visao-e-escopo",
-              },
-            ],
-          },
-          {
-            title: "More",
+            title: "Repositórios",
             items: [
               {
                 href: "https://github.com/grupo-bala/mindhub-docs",
