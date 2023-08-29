@@ -4,6 +4,41 @@ sidebar_position: 3
 
 # Documento de Arquitetura
 
-:::caution
-TODO
-:::
+<div style={{ display: "flex", justifyContent: "center" }}>
+
+| Data       | Versão       | Descrição                                    | 
+|------------|--------------|----------------------------------------------|
+| 28/08/2023 | 0.1          | Criação do documento, Modelo e Representação |
+
+
+</div>
+
+## 1. Introdução
+
+### 1.1. Objetivo
+
+Este documento tem como finalidade fornecer uma visão arquitetural do sistema Mindhub, assim como demonstrar as decisões arquiteturais tomadas no desenvolvimento do projeto.
+
+## 2. Modelo Arquitetural
+
+O sistema é dividido em uma aplicação mobile android (*Front end*) e uma *API RESTful* (*Back end*). Além disso, são usados serviços de terceiros para notificações e geolocalização.
+
+### 2.1. Back End
+
+O back end utilizará o modelo de arquitetura em camadas, no qual a aplicação é separada em módulos de acordo com as responsabilidades de cada componente, e a troca de mensagens entre esses módulos é feita somente em uma direção ou por meio de inversão de dependência. As camadas da aplicação, da mais externa a mas interna, serão: *Controllers*, *Services* e *Entities*
+
+### 2.2. Front End
+
+O front end utilizará o modelo *MVVM* (*Model*, *View*, *View-Model*), que é o recomendado pela Google para o desenvolvimento de aplicações. Nesse modelo, a camada *Model* armazena os dados locais e acessa dados remotos, enquanto a camada de *View-Model* faz uma ligação entra a camada de *View* e os dados do modelo.
+
+### 2.3. Serviços de Terceiros
+
+Os serviços de terceiros são utilizados apenas por meio de interfaces disponíveis pelos seus desenvolvedores.
+
+## 3. Representação Arquitetural
+
+### 3.1. Diagrama de Pacotes UML
+
+<iframe frameborder="0" style={{width:"100%", height:"744px"}} src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Mindhub#R7Vzfd6I4FP5rfCyHJATwcWptO3s6ZzvjnvnxtCeVqOwg4UCsun%2F9JpogGFRspUW7vlQuAeL97r35vktOO6g3XdylJJl8YQGNOtAOFh1004EQ%2BNATf6RlqSwAwLVlnIaBsm0Mg%2FBfqoy2ss7CgGalgZyxiIdJ2ThkcUyHvGQjacrm5WEjFpWfmpCxeqK9MQyGJKLGsB9hwCdrq48Lo%2B9pOJ7oJwNbnZkSPVgZsgkJ2LxgQv0O6qWM8fW36aJHI%2Bk97Zf1dbc7zuYTS2nM61ww7P1x%2F%2FwtCh6u76DPf4RP%2Fe%2FelbrLM4lm6gcLDGeR8Ph6znypHSGmn8iv0oM07aDrEYv5QJ0H4piTJ%2B0h4YW1IXcNUoZHloU8ZLEwRXQkzlxP%2BDRSd3hiszigwcOTNkTkiUaf43tKVo9c2QTQnIRx4TiKSJKFT6uJyMfMJyGng4QMpWEu4lLYTGfpX05TThcFk3LeHWVTytOlGKLOXkFfIali2VOH801cAFfZJoWYQDokiIrFcX7vDVzii0LsCPSggZ4BW8G9GU%2FZb9pjEZO%2Bi1kshlynNBM5lwOXW3LkpGkURtHWdcKVfIOITD2yQYBEEZt%2F0tknLaIu0OKIehjtDdnDwB0CJi8yKY0ID5%2FLKV%2BFlnrGIwvFFPNAQFv4stEoo9xAN5%2FZywEHXQNgGoh6pQ5ZyidszGIS9TfW63SdVsrzmzEPjCUKwn8o50tVfMmMs3JeHgdMxmbpkO4Zh1QZJ%2BmY7rufux4nf%2BBemGuj96pcQ0au9UQlSkX1oekLqmUmYj%2BMx3%2BtIbDL9dPZLp%2FAqVE%2B3ySn1FnHthAqVUPHrIaea7memXa4sXJoGzicX3a4NbPDb1V2uEZ2DGj6HA5fQiQuLjVAC3LDNwDqx1w47H%2BAJBFA7w8QNKm48Bgfp3Tw9cHEaMXltM9h2ZkawOliLFWZNRJsbDgRhM0KiACCZLRBltwtk2TYxYZr%2FQou5jbmV%2FQei4JwYLr8qa5fHfySBxbWhzeL4smbZfHokaah%2BPEriWPvg%2BXgYuLXXEz0DVuymkDHyIVrMvwtJxgHO%2BvVbBrdpmS6K7gL6CSSv9O0%2FywcqhWKjk9fHkxKuvUUaYGccl5UVBzkVYlHv6nE0DPYpx7HIhGS%2Bj8%2Fb8Mopdcpdjqq3IIA2q7FV1WuAVUlAzamq3ENYb3DNftd%2FWqHgfd2DcSGa%2B4YG4vZQ%2FsLSc6eTeTQ105t1C3FL4AV4WvDt2QSJhm%2FDVO6Wveh3YvYLJBg0SwjY%2BH4D48YfnfAugZg%2FYVYnwThaGixO71r368iOS3pidXlZI5SFYdJmSq1LSFluAV8IS%2BuuthWcAUXuGb4nYRGQfrn6H4R3k7%2BvksWy8AePv8aVvQFb1O26g63hKvuB%2FOozG7OtdW0yaRh30M6P37BOrNXU69FTPc5UDlZHGiZWhw4jtVFVfUaN4WqmTEGopf31iqP5eOW0h3oAAdpLM%2Fm3RUylcOnoZj5RTQhj4BXk1DXwgg4wAd6nddpinNJXOyZAUtmsO36HrbFp4qfwrxjefqk9QzwemyasExmx8dGz%2BnKT5mWwG5Fqa0DoZNjf3oIHQOm9rwd0wgcfnms%2FHqQPeuIbQl79t65DW1hjIqt6CvbsoF%2Fmm70Xr5yOj3ktgtRxyyJl%2FLO83iume9xUhXQ943y5zmWUyEfGuuqYJNnfqOJ9BhTd78cDSGprp6sqgJF9hvQEZlFvMkA8La0hmPgX70Fq7kevvkOyQD98mRGHvSv3x2X71o4G4WBzU0Onx4%2Fn30xrg%2Fpzg0OFS3uHfsbHLc5EYHNFxNqx%2FhHRAh2Nx%2FfKcEl9YNGoQZkqDnR4Jq7UgZfH4SnTMzeaEfKidYrYJclG%2FTNFetN96m45vLUHnlWm8zjutsXdWC1hMxr%2BtKKXUIlVbZO%2BqIyg77luqsOgvrkwq5pqebWlWq4XXu3PXA%2B6CK5eOP2Idqy%2Fcam%2BJavhl5IJ1qt7RpbAiEuN54hMEU7wFXKoDHR5poM3kDz8kRbHszHibYqaLxz02zeRdAedKY9TPeMaA%2BC9RfFuntxcN0N0ujUsK0uFQWFLAsDVns9soq0rG6yQccvRsCh4cCBWwGzfv5J89lt03b7UkRhz4KoFFGrvsCJIwrWFUDOySvBi0IKu%2BUguQKKFewKqu0LVKd313DH8%2FYMbyYGPdzWGLQbr2h1ww%2B%2BlULryP1w%2Bn8crBHe%2FKsI1P8P"></iframe>
+
+O diagrama acima demonstra a organização das três partes do sistema.
