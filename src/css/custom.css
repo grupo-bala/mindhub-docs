@@ -36,3 +36,8 @@ td {
 p {
   text-align: justify;
 }
+
+table {
+  display: table;
+  width: 100%;
+}
