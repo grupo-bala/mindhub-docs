@@ -75,7 +75,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/grupo-bala/mindhub-front",
+            href: "https://github.com/grupo-bala/mindhub-android",
             label: "GitHub Front End",
             position: "right",
           },
@@ -106,7 +106,7 @@ const config = {
                 label: "GitHub Docs",
               },
               {
-                href: "https://github.com/grupo-bala/mindhub-front",
+                href: "https://github.com/grupo-bala/mindhub-android",
                 label: "GitHub Front End",
               },
               {
