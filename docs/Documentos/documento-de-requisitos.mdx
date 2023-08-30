@@ -49,7 +49,38 @@ Ao final, obtivemos cerca de 30 respostas, devido o curto tempo de divulgação.
   - 100% dessas pessoas não costuma utilizar a ferramenta de tira-dúvidas de modo frequente;
 - **97% das pessoas acreditam que o MindHub é uma opção viável e proveitosa.**
 
-### 2.3 Requisitos
+## 3. Requisitos
+
+Foram identificados requisitos funcionais, requisitos não funcionais e regras de negócios através das técninas de elicitação mencionadas acima. Estas informções estão listadas abaixo.
+
+### 3.1 Requisitos Funcionais
+
+Os requisitos foram organizados por meio de *épicos*, que são funcionalidades gerais e abarcam outros requisitos menores. Dessa forma, os requisitos foram organizados por sessões.
+
+- Geral
+  - **RF001** - O sistema deve permitir o cadastro de usuários. 
+  - **RF002** - O sistema deve permitir o login de usuários. 
+
+- Fórum   
+  - **RF003** - O sistema deve permitir que o usuário crie um fórum.
+  - **RF004** - O sistema deve permitir que usuários vizualizem um fórum criado.
+  - **RF005** - O sistema deve permitir que usuários respondam a um fórum criado.
+  - **RF006** - O sistema deve permitir que o usuário proprietário do fórum marque-o como *resolvido*.
+    - **RF006.1** - O sistema deve permitir que o usuário proprietário escolha a melhor resposta.
+    - **RF006.2** - O sistema deve permitir que o usuário proprietário responda seu fórum, caso encontre a resposta por outros meios.
+  - **RF007** - O sistema deve permitir que usuários avaliem as respostas de um fórum com *Downvote* e *Upvote*.
+  - **RF008** - O sistema deve ordenar as respostas de um fórum pela soma de seus votos.
+  - **RF009** - O sistema sempre deve exibir a resposta que resolvou o fórum no topo.
+  - **RF010** - O sistema deve permitir que usários compartilhem fóruns.
+
+- Post
+  - **RF011** - O sistema deve permitir que o usuário crie uma postagem.
+  - **RF012** - O sistema deve permitir que o usuário proprietário edite uma postagem feita.
+  - **RF013** - O sistema deve permitir que o usuário proprietário remova uma postagem feita.
+  - **RF014** - O sistema deve permitir que usuários comentem em uma postagem.
+    - **RF014.1** - O sistema deve permitir que o usuário proprietário do comentário o remova.
+  - **RF015** - O sistema deve permitir que usuários avaliem a postagem com *Downvote* e *Upvote*.
+  - **RF016** - O sistema deve permitir que usários compartilhem postagens.
 
 :::caution
 TODO
