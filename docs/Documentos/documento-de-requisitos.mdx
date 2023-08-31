@@ -4,16 +4,12 @@ sidebar_position: 2
 
 # Documento de Requisitos
 
-<div style={{ display: "flex", justifyContent: "center" }}>
-
 | Data       | Versão       | Descrição                     | 
 |------------|--------------|-------------------------------|
 | 28/08/2023 | 0.1          | Criação do documento, Técnicas de elicitação adicionadas |
-| 29/08/2023 | 0.1          | Adição dos requisitos gerais, do fórum e do post |
-| 29/08/2023 | 0.1          | Adição dos requisitos do feed, gameficação e perfil |
-
-
-</div>
+| 29/08/2023 | 0.2          | Adição dos requisitos gerais, do fórum e do post |
+| 29/08/2023 | 0.3          | Adição dos requisitos do feed, gameficação e perfil |
+| 29/08/2023 | 0.4          | Adição dos requisitos do evento e regras de negócios |
 
 
 ## 1. Introdução
@@ -33,7 +29,7 @@ O brainstorming é uma técnica de elicitação de ideias que visa gerar um gran
 
 A reunião foi realizada com dois clientes, ambos alunos do ensino médio, e com a equipe de desenvolvimento. Utilizamos o iro como plataforma para facilitar na criação das ideias.
 
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVMqHlLFw=/?moveToViewport=-2773,-1191,4699,2258&embedId=618661660999" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+<iframe width="100%" height="432" src="https://miro.com/app/live-embed/uXjVMqHlLFw=/?moveToViewport=-2773,-1191,4699,2258&embedId=618661660999" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
 ### 2.2 Questionário
 
@@ -63,6 +59,7 @@ Os requisitos foram organizados por meio de *épicos*, que são funcionalidades 
   - **RF0XX** - O sistema deve permitir o cadastro de usuários. 
   - **RF0XX** - O sistema deve permitir o login de usuários. 
   - **RF0XX** - O sistema deve coletar as principais áreas de especialidade do usuário.
+  - **RF0XX** - O sistema deve permitir que o usuário avalie comentários.
 
 - Fórum   
   - **RF0XX** - O sistema deve permitir que o usuário crie um fórum com uma pergunta.
@@ -73,19 +70,27 @@ Os requisitos foram organizados por meio de *épicos*, que são funcionalidades 
   - **RF0XX** - O sistema deve permitir que o usuário proprietário do fórum marque-o como *resolvido*.
     - **RF0XX.1** - O sistema deve permitir que o usuário proprietário escolha a melhor resposta.
     - **RF0XX.2** - O sistema deve permitir que o usuário proprietário responda seu fórum, caso encontre a resposta por outros meios.
-  - **RF0XX** - O sistema deve permitir que usuários avaliem as respostas de um fórum com *Downvote* e *Upvote*.
+  - **RF0XX** - O sistema deve permitir que usuários avaliem as respostas de um fórum.
   - **RF0XX** - O sistema deve ordenar as respostas de um fórum pela soma de seus votos.
-  - **RF0XX** - O sistema sempre deve exibir a resposta que resolvou o fórum no topo.
   - **RF0XX** - O sistema deve permitir que usários compartilhem fóruns.
 
-- Post
-  - **RF0XX** - O sistema deve permitir que o usuário crie uma postagem.
-  - **RF0XX** - O sistema deve permitir que o usuário proprietário edite uma postagem feita.
-  - **RF0XX** - O sistema deve permitir que o usuário proprietário remova uma postagem feita.
-  - **RF0XX** - O sistema deve permitir que usuários comentem em uma postagem.
+- Tópico
+  - **RF0XX** - O sistema deve permitir que o usuário crie um tópico sobre determinado assunto.
+  - **RF0XX** - O sistema deve permitir que o usuário proprietário edite um tópico feito.
+  - **RF0XX** - O sistema deve permitir que o usuário proprietário remova um tópico feito.
+  - **RF0XX** - O sistema deve permitir que usuários comentem em um tópico.
     - **RF0XX.1** - O sistema deve permitir que o usuário proprietário do comentário o remova.
-  - **RF0XX** - O sistema deve permitir que usuários avaliem a postagem com *Downvote* e *Upvote*.
+    - **RF0XX.2** - O sistema deve permitir que o usuário proprietário do comentário o edite.
+  - **RF0XX** - O sistema deve permitir que usuários avaliem o tópico.
   - **RF0XX** - O sistema deve permitir que usários compartilhem postagens.
+
+- Evento
+  - **RF0XX** - O sistema deve permitir que o usário crie um evento.
+  - **RF0XX** - O sistema deve permitir que o usário proprietário edite um evento criado.
+  - **RF0XX** - O sistema deve permitir que o usário proprietário remova um evento criado.
+  - **RF0XX** - O sistema deve permitir que o usário visualize um evento.
+  - **RF0XX** - O sistema deve permitir que o usário comente em um evento.
+  - **RF0XX** - O sistema deve permitir que o usário responda a um comentário feito em um evento.
 
 - Feed
   - **RF0XX** - O sistema deve possuir um feed onde exibirá os conteúdos.
@@ -103,6 +108,25 @@ Os requisitos foram organizados por meio de *épicos*, que são funcionalidades 
   - **RF0XX** - O sistema deve conter uma estratégia de gameficação.
   - **RF0XX** - O sistema deve exibir um ranking de usuários.
 
+### 3.2 Requisitos Não Funcionais
+
 :::caution
 TODO
 :::'
+
+### 3.3 Regras de negócio
+
+As seguintes regras de negócio definem a lógica dos requisitos do sistema, especificados acima.
+
+- **RN0XX** - As informações de um usuário devem ser conhecidas pelo sistema, sendo elas - nome completo, e-mail, áreas de especialidade, meio de contato principal.
+- **RN0XX** - As áreas de especialidade são definidas por - matemática, português, história, geografia, inglês, espanhol, geometria, química, física, biologia, filosofia, sociologia, outros idiomas, educação física, artes, computação, redação e literatura.
+- **RN0XX** - Na criação de um fórum, tópico e evento, o usuário deve informar - título, descrição, área do conhecimento.
+- **RN0XX** - Na avaliação de um fórum,tópico ou comentário, o usuário poderá escolher entre dar um *Downvote* ou *Upvote*.
+- **RN0XX** - O sistema sempre deve exibir a resposta que resolveu o fórum no topo.
+- **RN0XX** - A política de exibição dos conteúdos no feed será baseado primeiramente pelas áreas de especialidade do usuário seguido da quantidade de votos de um conteúdo.
+- **RN0XX** - A quantidade de votos de um conteúdo será dado pela soma dos *Downvotes* e *Upvotes*.
+- **RN0XX** - A lógica de gameficação será feita por meio de um sistema de XP (pontos de experiência) e conquistas.
+  - **RN0XX** - Por cada resposta feita em um fórum, o usuário ganhará 5 de XP.    
+  - **RN0XX** - Por cada *Upvote* o usuário proprietário da resposta ganhará 1 de XP.
+  - **RN0XX** - Por cada *Downvote* o usuário proprietário da resposta perderá 1 de XP.
+  - **RN0XX** - Um usuário não poderá ter XP negativo.
