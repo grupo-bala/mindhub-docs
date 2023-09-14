@@ -67,7 +67,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "docsSidebar",
             position: "left",
-            label: "Documentação",
+            label: "Ver documentação",
           },
           {
             href: "https://github.com/grupo-bala/mindhub-docs",
