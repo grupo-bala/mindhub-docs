@@ -1,0 +1,86 @@
+---
+sidebar_position: 3
+toc_max_heading_level: 4
+---
+
+# Documento de Arquitetura
+
+| Data       | Versão       | Descrição                                    | 
+|------------|--------------|----------------------------------------------|
+| 28/08/2023 | 0.1          | Criação do documento, Modelo e Representação |
+| 02/09/2023 | 0.2          | Atualização do diagrama de pacotes e detalhamento dos componentes |
+
+
+## 1. Introdução
+
+### 1.1. Objetivo
+
+Este documento tem como finalidade fornecer uma visão arquitetural do sistema Mindhub, assim como demonstrar as decisões arquiteturais tomadas no desenvolvimento do projeto.
+
+## 2. Modelo Arquitetural
+
+O sistema é dividido em uma aplicação mobile android (*Front end*) e uma *API RESTful* (*Back end*). Além disso, são usados serviços de terceiros para notificações (Firebase Cloud Messaging) e geolocalização (Google Maps API).
+
+### 2.1. Back End
+
+O back end utilizará o modelo de arquitetura em camadas, no qual a aplicação é separada em módulos de acordo com as responsabilidades de cada componente, e a troca de mensagens entre esses módulos é feita somente em uma direção ou por meio de inversão de dependência. As camadas da aplicação, da mais externa a mas interna, serão: *Controllers*, *Providers* e *Entities*
+
+#### 2.1.1. Controllers
+
+Os controllers formam a camada mais externa da API, e são responsáveis por tratar as requisições recebidas e retornar uma reposta para elas. O mecanismo de rotas define qual controlador está associado a cada recurso/serviço disponível no servidor.
+
+#### 2.1.2. Providers
+
+Os providers são dependências injetáveis nos controladores, podendo assumir responsabilidades baseadas no seu tipo. Os tipos de providers existentes na aplicação serão *Services* (execução de serviços e casos de uso) e *Repositories* (Gerenciamento de entidades).
+
+#### 2.1.3. Entities
+
+As entidades são representações dos objetos do modelo de negócio e estão diretamente associadas à representação do banco de dados. As entidades são acessadas por meio de repositórios e possuem métodos para modificação do banco de dados.
+
+### 2.2. Front End
+
+O front end utilizará o modelo *MVVM* (*Model*, *View*, *View-Model*), que é o recomendado pela Google para o desenvolvimento de aplicações. Nesse modelo, a camada *Model* armazena os dados locais e acessa dados remotos, enquanto a camada de *View-Model* faz uma ligação entra a camada de *View* e os dados do modelo. Uma camada intermediária de serviços (*Services*) também é utilizada.
+
+#### 2.2.1. View
+
+A view é a camada mais externa da aplicação, sendo responsável por apresentar os dados e lidar com a interação com usuário. É composta por *Activities* e *Composables*, ambos componentes nativos do Android para composição visual das interfaces.
+
+#### 2.2.2. Model
+
+A camada model representa o modelo de dados do negócio, tanto local por meio dos repositórios, quanto remoto por meio da API.
+
+#### 2.2.3. View-Model
+
+A camada view-model faz uma ligação entre os dados do modelo com a interface gráfica, permitindo a sincronização entre essas duas camadas. Também é responsável pelo tratamento e transformações das entradas do usuário e dos dados do modelo.
+
+#### 2.2.4. Services
+
+Essa camada serve como um conjunto de utilitários para o desenvolvimento da aplicação, oferecendo a execução de serviços.
+
+### 2.3. Serviços de Terceiros
+
+Os serviços de terceiros são utilizados apenas por meio de interfaces disponíveis pelos seus desenvolvedores. Esses serviços são: Firebase Cloud Messaging e o Google Maps API.
+
+#### 2.3.1. Firebase Cloud Messaging
+
+O FCM é um serviço oferecido pela Google para o gerenciamento de notificações para aplicações Android. Permite o envio e leitura em tempo real de notificações, com baixo custo de bateria para os aparelhos conectados.
+
+#### 2.3.2. Google Maps API
+
+O Google Maps API é uma API fornecida pelo Google que oferece serviços de geolocalização, possibilitando a visualização e interação com pontos geográficos pela aplicação.
+
+## 3. Representação Arquitetural
+
+### 3.1. Diagrama de Pacotes UML
+
+<iframe frameborder="0" style={{width:"100%", height:"500px"}} src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Mindhub#R5Vxbd9o4EP41PMbHuvny2NBc2qZn06Xbbvdlj4MFeGss1pgE9tevjCVjIRlMgoNJeQkey7Y831y%2BGYn0UH%2B6vEmD2eQzC2ncg3a47KH3PQiha0P%2BJ5esCglA2C8k4zQKhWwjGET%2FUSG0hXQRhXSuDMwYi7NopgqHLEnoMFNkQZqyJ3XYiMXqU2fBWDzR3ggGwyCm2rDvUZhNCqlHKqNvaTSeyCcDW5yZBnKwEMwnQcieKiJ01UP9lLGs%2BDZd9mmca0%2FqpbjuuuZsObGUJlmTC4b9j7ePv8fh3eUN9LLv0cPVN%2FdC3OUxiBfihTmGi5hrvJhztpKK4NOf5V9zDdK0hy5HLMkG4jzgx1nwIDXEtVAIStUgIbhn8yiLWMJFMR3xM5eTbBqLOzywRRLS8O5BCuLggcYfklsarB%2B5lnGgsyBKKsdxHMzm0cN6IvljniZRRgezYJgLnrhdcpmuLPnmNM3osiISyruhbEqzdMWHiLMXRIIubNkRh08bu%2BAGX8gmFZvA0pYDYYvj8t4buPgXgdgB6EENPQ22inrnWcp%2B0j6LWa67hCV8yGVK59znSuBKSYlcLhpFcbx1HVdltkEkd71gg0AQx%2BzpnfS%2BXMLjAq2OaIbRTpPdD9w%2BYKDnFsKUxkEWPaoub0JLPOOeRXyKpSGgLXzZaDSnmYZuObNGgCdf%2F739NABT8sn%2B6%2Bst%2Bvnjj%2F7HC1fDl4Y8XIlDlmYTNmZJEF9tpJdp4VVC8Zsxd4zNBIL%2F0CxbidgbLDKmumXxzPxBtZFnF1BztkiHdMc4JMJ6kI5ptuPla1BuDN6LXA1prtbngSjlwYemzwiWc276UTL%2BWkBgq%2BETb0dPgBtEz1dxKXHWx5aNlGBIsOW4Wjz0gOVj3fEIsRBqCShPA%2BoqybjWnpPSzh0lfxslBHCp%2BQpMrhkmTEpMXwKT0Zn9U0Qyrt909Wd%2BvUVsTwp%2BrAWAyOP3S%2FGE4mhVPbqnacQVsGYf9nFjY33MU2NjvdW%2FQmzcNcmKy92n7JHz9udExjOgkZoHNgW81lMRUdwUEAO1tA0MBoAjhFEjpm%2BRWu7B7RDSsQ8Y17fAmXFLneEMaPoYDTufOI8Iq7iLZ7mKP2Io0VSTJjJQG2j5Lbkk1gD6nc5ylbG0%2B%2BymBZAcy3e2YbJ9DSdgI8s2kVCOVFvVAjSkRDbPxikdfLnTkVpHT6l5qKpUwjhdjvMWmzXi8W844SHSCgMORzCnLbY8yuaV1DDQE5NnCH9Oax0PdFreqHLGF1BGAy57C2WvIRmUN9yipacqnaEeuC6D4c98gklYG7YW0%2Fg6DaZ11l1BZ5ZnTJpePXKFSlIg7dPLDyYKfTyGXzhA9QuouwUBplag35ZjSJ6wi7CNuSPMmr9%2B2VQX5KpX7VsbWSxAZXW5khEE6aoBppBR0qijq4Y04LI1qtmt6hcrTCcVr6waSDTV3DA25rOH9mdeDnWcVOyFqoS%2BsWsjX7FfYPBsIBe1FDbRGkSOBtF1lNJ14od2P2aLMAeLzufBmCv%2Bl0fMUDq%2FMmC%2BBtjVkucnTjhaSnbHV%2B3pIhI%2BSWOwNinu5WRYVIr7SZkItR0hZaQDfAFsVRfAwBUc4Ojmh7wjmB%2Bkv41ul9H15O%2Bb2XIV2sPHH0NDE%2BQ6Zet%2BTEe46m4wD%2FLs9lRrpk06DfsW0afDE9YZdIiPiZg4i5HqLBhaRM90GFu%2BoSsFbdIWqrrHaIieXaN4fwnwvFRagw7ASGLZxW6xWQN65fBuyGf%2BJlZaD4BXklDHIghg4AGoLuVgYlpw9YCVe7DteC6x%2BcfET%2BFRFl%2FN7%2Bdq4PXZdMbmuXf82uhhP%2F%2BotAT6hlDbBELc3jYHhDWYTsKTdyKwf%2BuP0Ote9iwttiPs2T1xG9oiBFVb0Re2ZYNyQ8PLutE7%2Bcrx6iGnW4hiPSSeyfJnC1wT2SrX9Dwt%2FLnYwobyobWuCtF5ptht%2FqbKh5zlysmKAFAlviEdBYs4axN7d6vMwBr0wHnd9r2%2BfKSB%2FvYqjNLeD6swTNAALIRnU1wQfRPnu%2FsPZx%2BHm0Mqa357ez3N0N12nbJQUJYanfbqB6KvSZRbUVa%2FJkzQ33w8rGCW1w%2BGvdF1uKH2igZH35Yy%2BHLHNaVj9kpbUo6UtICtlmzQ09PWq%2B5TcfQc1Z3yrDGZl36%2Bn8x3a8eJ5DCd2CWkVGWF01crM%2BhZjrPuIIhPWdi1Xao5TUs1aQZdQRecD7ooz%2BCke4h6nULU0YvvfGnoLRZ4raVASNTGMwR60V7%2BrkApD1qr3Bydxmtovr3KrTTmwyo3EzTuuRVu7pugPehMe5hOlzZHK4mRuBYsec06Ma6ruCPvj4ZN6So%2BOm7rS3lECVaVAevNHnODX4qoQBy113YBRAy%2FbniBaM7VDceuu2M4%2F1JM%2BLkRwPybjZNQbyOcBiN6KcKaii8Q2Eq7HrYI8Hhl6Tk%2BcQjc6sEURizusgM7pNvGVhQvrFy706FGuLUHC3q7TRDWTKv2PQjaecGhVtjLN2TJf5lSDN%2F85xl09T8%3D"></iframe>
+
+O diagrama acima demonstra a organização das três partes do sistema.
+
+## 4. Modelo de Dados
+
+### 4.1. Modelo relacional do banco de dados
+
+<iframe width="100%" height="500px" src='https://dbdiagram.io/embed/64fa09d702bd1c4a5e2a562c'></iframe>
+
+O diagrama acima representa as entidades do sistema e suas relações.

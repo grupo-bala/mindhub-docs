@@ -70,6 +70,10 @@ const config = {
             label: "Ver documentação",
           },
           {
+            type: "docsVersionDropdown",
+            position: "right",
+          },
+          {
             href: "https://github.com/grupo-bala/mindhub-docs",
             label: "GitHub Docs",
             position: "right",
