@@ -12,6 +12,7 @@ toc_max_heading_level: 4
 | 29/08/2023 | 0.3          | Adição dos requisitos do feed, gameficação e perfil |
 | 29/08/2023 | 0.4          | Adição dos requisitos do evento e regras de negócios |
 | 01/09/2023 | 0.5          | Adição dos requisitos não funcionais |
+| 18/09/2023 | 1.0          | Agrupamento dos requisitos CRUD e Postagem |
 
 ## 1. Introdução
 
@@ -56,65 +57,52 @@ Foram identificados requisitos funcionais, requisitos não funcionais e regras d
 
 Os requisitos foram organizados por meio de *épicos*, que são funcionalidades gerais e abarcam outros requisitos menores. Dessa forma, os requisitos foram organizados por sessões.
 
-#### 3.1.1. Geral
+Uma **Postagem** engloba **Fórum**, **Tópico** e **Evento**.
 
-- **RF001** - O sistema deve permitir o cadastro de usuários. **(Essencial)**
-- **RF002** - O sistema deve permitir o login de usuários. **(Essencial)**
-- **RF003** - O sistema deve coletar as principais áreas de especialidade do usuário. **(Essencial)**
-- **RF004** - O sistema deve permitir que o usuário avalie comentários. **(Essencial)**
-- **RF005** - O sistema deve permitir que o usuário se autentique usando a biometria. **(Desejável)**
+#### 3.1.1. GeraL
+  - **RF001** - O sistema deve permitir o cadastro de usuários. **(Essencial)**
+  - **RF002** - O sistema deve permitir o login de usuários. **(Essencial)**
+  - **RF003** - O sistema deve coletar as principais áreas de especialidade do usuário. **(Essencial)**
+  - **RF004** - O sistema deve permitir que o usuário avalie comentários. **(Essencial)**
+  - **RF005** - O sistema deve permitir que o usuário se autentique usando a biometria. **(Desejável)**
+  - **RF006** - O sistema deve permitir que o usuários mantenham um comentário em uma postagem. **(Essencial)**
+    - **RF006.1** - O sistema deve permitir que usuários mantenham comentários em relação a outro comentário. **(Esssencial)**
+  - **RF007** - O sistema deve permitir que usuários avaliem uma postagem. **(Essencial)**
+  - **RF008** - O sistema deve permitir que usários compartilhem postagens. **(Desejável)**
+  - **RF009** - O sistema deve notificar o usuário a respeito de últimas atividades em suas postagens/comentário. **(Desejável)**
 
 #### 3.1.2. Fórum
-
-- **RF006** - O sistema deve permitir que o usuário crie um fórum com uma pergunta. **(Essencial)**
-- **RF007** - O sistema deve permitir que o usuário proprietário edite uma pergunta feita. **(Essencial)**
-- **RF008** - O sistema deve permitir que o usuário proprietário apague uma pergunta feita. **(Essencial)**
-- **RF009** - O sistema deve permitir que usuários vizualizem um fórum criado. **(Essencial)**
-- **RF010** - O sistema deve permitir que usuários respondam a um fórum criado. **(Essencial)**
-- **RF011** - O sistema deve permitir que o usuário proprietário do fórum marque-o como *resolvido*.
-    - **RF011.1** - O sistema deve permitir que o usuário proprietário escolha a melhor resposta. **(Essencial)**
-    - **RF011.2** - O sistema deve permitir que o usuário proprietário responda seu fórum, caso encontre a resposta por outros meios. **(Desejável)**
-- **RF012** - O sistema deve permitir que usuários avaliem as respostas de um fórum. **(Essencial)**
-- **RF013** - O sistema deve ordenar as respostas de um fórum pela soma de seus votos. **(Essencial)**
-- **RF014** - O sistema deve permitir que usários compartilhem fóruns. **(Desejável)**
+  - **RF010** - O sistema deve permitir que o usuário mantenha um fórum. **(Essencial)**
+  - **RF011** - O sistema deve permitir que usuários vizualizem um fórum criado. **(Essencial)**
+  - **RF012** - O sistema deve permitir que o usuário proprietário do fórum marque-o como *resolvido*.
+      - **RF012.1** - O sistema deve permitir que o usuário proprietário escolha a melhor resposta. **(Essencial)**
+      - **RF012.2** - O sistema deve permitir que o usuário proprietário responda seu fórum, caso encontre a resposta por outros meios. **(Desejável)**
+  - **RF013** - O sistema deve ordenar as respostas de um fórum pela soma de seus votos. **(Essencial)**
+  - **RF014** - O sistema deve permitir que usários compartilhem fóruns. **(Desejável)**
 
 #### 3.1.3. Tópico
-
-- **RF015** - O sistema deve permitir que o usuário crie um tópico sobre determinado assunto. **(Essencial)**
-- **RF016** - O sistema deve permitir que o usuário proprietário edite um tópico feito. **(Essencial)**
-- **RF017** - O sistema deve permitir que o usuário proprietário remova um tópico feito. **(Essencial)**
-- **RF018** - O sistema deve permitir que usuários comentem em um tópico.
-    - **RF018.1** - O sistema deve permitir que o usuário proprietário do comentário o remova. **(Essencial)**
-    - **RF018.2** - O sistema deve permitir que o usuário proprietário do comentário o edite. **(Essencial)**
-- **RF019** - O sistema deve permitir que usuários avaliem o tópico. **(Essencial)**
-- **RF020** - O sistema deve permitir que usários compartilhem postagens. **(Desejável)**
+  - **RF015** - O sistema deve permitir que o usuário mantenha um tópico sobre determinado assunto. **(Essencial)**
+  - **RF016** - O sistema deve permitir que usuários visualizem um tópico. **(Essencial)**
 
 #### 3.1.4. Evento
-
-- **RF021** - O sistema deve permitir que o usário crie um evento. **(Essencial)**
-- **RF022** - O sistema deve permitir que o usuário proprietário edite um evento criado. **(Essencial)**
-- **RF023** - O sistema deve permitir que o usuário proprietário remova um evento criado. **(Essencial)**
-- **RF024** - O sistema deve permitir que o usuário visualize um evento. **(Essencial)**
-- **RF025** - O sistema deve permitir que o usuário comente em um evento. **(Essencial)**
-- **RF026** - O sistema deve permitir que o usuário responda a um comentário feito em um evento. **(Essencial)**
+  - **RF017** - O sistema deve permitir que o usário mantenha um evento. **(Essencial)**
+  - **RF018** - O sistema deve permitir que o usuário visualize um evento. **(Essencial)**
 
 #### 3.1.5. Feed
-
-- **RF027** - O sistema deve possuir um feed onde exibirá os conteúdos.
-    - **RF027.1** - O sistema deve exibir uma lista de postagens baseadas na(s) especialidade(s) do usuário. **(Essencial)**
-    - **RF027.2** - O sistema deve exibir uma lista de fóruns baseados na(s) especialidade(s) do usuário. **(Essencial)**
-- **RF028** - O sistema deve permitir que o usuário filtre conteúdos por categoria e ou título. **(Essencial)**
+  - **RF019** - O sistema deve possuir um feed onde exibirá os conteúdos.
+      - **RF019.1** - O sistema deve exibir uma lista de postagens baseadas na(s) especialidade(s) do usuário. **(Essencial)**
+      - **RF019.2** - O sistema deve exibir uma lista de fóruns baseados na(s) especialidade(s) do usuário. **(Essencial)**
+  - **RF020** - O sistema deve permitir que o usuário filtre conteúdos por categoria e ou título. **(Essencial)**
 
 #### 3.1.6. Perfil
-
-- **RF029** - O sistema deve exibir as informações do usuário. **(Essencial)**
-- **RF030** - O sistema deve exibir as últimas atividades do usário. **(Desejável)**
-- **RF031** - O sistema deve permitir que o usuário altere sua informações. **(Essencial)**
-- **RF032** - O sistema deve permitir que o usuário remova sua conta. **(Essencial)**
+  - **RF021** - O sistema deve exibir as informações do usuário. **(Essencial)**
+  - **RF022** - O sistema deve exibir as últimas atividades do usário. **(Desejável)**
+  - **RF023** - O sistema deve permitir que o usuário altere sua informações. **(Essencial)**
+  - **RF024** - O sistema deve permitir que o usuário remova sua conta. **(Essencial)**
 
 #### 3.1.7. Gameficação
-  - **RF033** - O sistema deve conter uma estratégia de gameficação. **(Essencial)**
-  - **RF034** - O sistema deve exibir um ranking de usuários. **(Essencial)**
+  - **RF025** - O sistema deve conter uma estratégia de gameficação. **(Essencial)**
+  - **RF026** - O sistema deve exibir um ranking de usuários. **(Essencial)**
 
 ### 3.2. Requisitos Não Funcionais
 
