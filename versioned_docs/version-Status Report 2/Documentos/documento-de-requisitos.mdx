@@ -1,0 +1,154 @@
+---
+sidebar_position: 2
+toc_max_heading_level: 4
+---
+
+# Documento de Requisitos
+
+| Data       | Versão       | Descrição                     | 
+|------------|--------------|-------------------------------|
+| 28/08/2023 | 0.1          | Criação do documento, Técnicas de elicitação adicionadas |
+| 29/08/2023 | 0.2          | Adição dos requisitos gerais, do fórum e do post |
+| 29/08/2023 | 0.3          | Adição dos requisitos do feed, gameficação e perfil |
+| 29/08/2023 | 0.4          | Adição dos requisitos do evento e regras de negócios |
+| 01/09/2023 | 0.5          | Adição dos requisitos não funcionais |
+| 18/09/2023 | 1.0          | Agrupamento dos requisitos CRUD e Postagem |
+
+## 1. Introdução
+
+A etapa de levantamento de requisitos é uma das principais partes de um projeto de desenvolvimento de software. Nessa etapa, buscamos entender as necessidaddes dos clientes e com isso extraímos as funcionalidades que o sistema deve ter, as restrições de negócio, aspectos qualitativos do sistema, e assim por diante. Neste documento, iniciaremos a fase de elicitação, modelagem e criação do backlog do produto.
+
+
+## 2. Elicitação
+
+Elicitar é obter informações sobre algo. No contexto de desenvolvimento de software, é importante entender as necessidades do cliente para criar um sistema que atenda às suas expectativas. Para isso, é preciso identificar fontes de informação, coletar fatos e se comunicar com o cliente.
+
+As tecninas de elicitação usadas pela equipe foram brainstorming e questionário.
+
+### 2.1. Brainstorming
+
+O brainstorming é uma técnica de elicitação de ideias que visa gerar um grande número de ideias de forma rápida e espontânea. É uma técnica eficaz para obter ideias criativas e inovadoras. O tema do brainstorming foi o de visão geral das funcionalidades do sistema.
+
+A reunião foi realizada com dois clientes, ambos alunos do ensino médio, e com a equipe de desenvolvimento. Utilizamos o iro como plataforma para facilitar na criação das ideias.
+
+<iframe width="100%" height="432" src="https://miro.com/app/live-embed/uXjVMqHlLFw=/?moveToViewport=-2773,-1191,4699,2258&embedId=618661660999" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+### 2.2. Questionário
+
+O questionário é uma técnica de elicitação de requisitos que consiste em um conjunto de perguntas direcionadas aos stakeholders. É uma técnica eficaz para coletar informações de um grande número de pessoas de forma rápida e eficiente. Utilizamos essa técnica como uma forma de validar a ideia, após termos realizado o [brainstorming](#21-brainstorming).
+
+Utilizamos a ferramenta de formulários do Google (*Google Forms*), para facilitar o processo de criação de perguntas, compartilhamento e análise de respostas. ([Questionário](https://forms.gle/jLRjuDzcKRdcskp48))
+
+Ao final, obtivemos cerca de 30 respostas, devido o curto tempo de divulgação. Das perguntas e dados obtidos, destacamos o seguinte:
+
+- 100% das pessoas afirmaram possuir alguma dificuldade no processo de aprendizado de algum conhecimento;
+- 69% das pessoas costumam tirar suas dúvidas de forma regular durante o aprendizado;
+- 50% das pessoas não possuem nenhum tipo de suporte (cursinho, plataforma de estudos, grupo de estudos, etc);
+- 100% das pesssoas realizam pesquisas na internet para obter respostas para suas dúvidas;
+- 30% das pessoas possuem acesso a uma plataforma de estudos fornecida pela sua instituição de ensino;
+  - 100% dessas pessoas não costuma utilizar a ferramenta de tira-dúvidas de modo frequente;
+- **97% das pessoas acreditam que o MindHub é uma opção viável e proveitosa.**
+
+## 3. Requisitos
+
+Foram identificados requisitos funcionais, requisitos não funcionais e regras de negócios através das técninas de elicitação mencionadas acima. Estas informções estão listadas abaixo.
+
+### 3.1. Requisitos Funcionais
+
+Os requisitos foram organizados por meio de *épicos*, que são funcionalidades gerais e abarcam outros requisitos menores. Dessa forma, os requisitos foram organizados por sessões.
+
+Uma **Postagem** engloba **Fórum**, **Tópico** e **Evento**.
+
+#### 3.1.1. GeraL
+  - **RF001** - O sistema deve permitir o cadastro de usuários. **(Essencial)**
+  - **RF002** - O sistema deve permitir o login de usuários. **(Essencial)**
+  - **RF003** - O sistema deve coletar as principais áreas de especialidade do usuário. **(Essencial)**
+  - **RF004** - O sistema deve permitir que o usuário avalie comentários. **(Essencial)**
+  - **RF005** - O sistema deve permitir que o usuário se autentique usando a biometria. **(Desejável)**
+  - **RF006** - O sistema deve permitir que o usuários mantenham um comentário em uma postagem. **(Essencial)**
+    - **RF006.1** - O sistema deve permitir que usuários mantenham comentários em relação a outro comentário. **(Esssencial)**
+  - **RF007** - O sistema deve permitir que usuários avaliem uma postagem. **(Essencial)**
+  - **RF008** - O sistema deve permitir que usários compartilhem postagens. **(Desejável)**
+  - **RF009** - O sistema deve notificar o usuário a respeito de últimas atividades em suas postagens/comentário. **(Desejável)**
+
+#### 3.1.2. Fórum
+  - **RF010** - O sistema deve permitir que o usuário mantenha um fórum. **(Essencial)**
+  - **RF011** - O sistema deve permitir que usuários vizualizem um fórum criado. **(Essencial)**
+  - **RF012** - O sistema deve permitir que o usuário proprietário do fórum marque-o como *resolvido*.
+      - **RF012.1** - O sistema deve permitir que o usuário proprietário escolha a melhor resposta. **(Essencial)**
+      - **RF012.2** - O sistema deve permitir que o usuário proprietário responda seu fórum, caso encontre a resposta por outros meios. **(Desejável)**
+  - **RF013** - O sistema deve ordenar as respostas de um fórum pela soma de seus votos. **(Essencial)**
+  - **RF014** - O sistema deve permitir que usários compartilhem fóruns. **(Desejável)**
+
+#### 3.1.3. Tópico
+  - **RF015** - O sistema deve permitir que o usuário mantenha um tópico sobre determinado assunto. **(Essencial)**
+  - **RF016** - O sistema deve permitir que usuários visualizem um tópico. **(Essencial)**
+
+#### 3.1.4. Evento
+  - **RF017** - O sistema deve permitir que o usário mantenha um evento. **(Essencial)**
+  - **RF018** - O sistema deve permitir que o usuário visualize um evento. **(Essencial)**
+
+#### 3.1.5. Feed
+  - **RF019** - O sistema deve possuir um feed onde exibirá os conteúdos.
+      - **RF019.1** - O sistema deve exibir uma lista de postagens baseadas na(s) especialidade(s) do usuário. **(Essencial)**
+      - **RF019.2** - O sistema deve exibir uma lista de fóruns baseados na(s) especialidade(s) do usuário. **(Essencial)**
+  - **RF020** - O sistema deve permitir que o usuário filtre conteúdos por categoria e ou título. **(Essencial)**
+
+#### 3.1.6. Perfil
+  - **RF021** - O sistema deve exibir as informações do usuário. **(Essencial)**
+  - **RF022** - O sistema deve exibir as últimas atividades do usário. **(Desejável)**
+  - **RF023** - O sistema deve permitir que o usuário altere sua informações. **(Essencial)**
+  - **RF024** - O sistema deve permitir que o usuário remova sua conta. **(Essencial)**
+
+#### 3.1.7. Gameficação
+  - **RF025** - O sistema deve conter uma estratégia de gameficação. **(Essencial)**
+  - **RF026** - O sistema deve exibir um ranking de usuários. **(Essencial)**
+
+### 3.2. Requisitos Não Funcionais
+
+Os requisitos não funcionais foram agrupados por atributos de qualidade.
+
+#### 3.2.1. Disponibilidade
+  - **RNF001** - O sistema deve estar disponível no mínimo 95%, em 24 horas por dia, exceto em situações de manutenção do servidor e/ou na plataforma de hospedagem. **(Essencial)**
+
+#### 3.2.2. Instalabilidade
+  - **RNF002** - O sistema deve ser compatível com 100% dos dispositivos a partir do Android 7.0 (Nougat). **(Essencial)**
+  - **RNF003** - O servidor do sistema deve ser instalado em um abiente virtualizado.  **(Essencial)**
+
+#### 3.2.3. Integridade
+  - **RNF004** - O banco de dados do sistema deve manter 100% da integridade dos dados entre alterções nos modelos de dados. **(Essencial)**
+
+#### 3.2.4. Robustez
+  - **RNF005** - Se o sistema falhar antes do usuário publicar uma pergunta ou material, ele deverá salvar as informações em um *rascunho*. **(Desejável)**
+
+#### 3.2.5. Segurança
+  - **RNF006** - O sistema deve gerar, usando o algoritmo *bcrypt*, e armazenar somente o *hash* da senha do usuário no banco de dados. **(Essencial)**
+
+#### 3.2.6. Usabilidade
+  - **RNF007** - Um usuário treinado deve ser capaz de criar um fórum em uma média de 3 minutos e no máximo 5 minutos, 90% do tempo. **(Desejável)**
+  - **RNF008** - Um novo usário deve ser capaz de deslogar do sistema, em uma média de 1 minuto no máximo 2 minutos, em 95% das vezes. **(Desejável)**
+  - **RNF009** - Para cada ação de criação, edição ou remoção que o usuário fizer, o sistema sempre deve fornecer algum feedback sobre essa ação. **(Desejável)**
+
+### 3.3. Regras de negócio
+
+As seguintes regras de negócio definem a lógica dos requisitos do sistema, especificados acima.
+
+- **RN001** - As informações de um usuário devem ser conhecidas pelo sistema, sendo elas - nome completo, e-mail, áreas de especialidade, meio de contato principal.
+- **RN002** - As áreas de especialidade são definidas por - matemática, português, história, geografia, inglês, espanhol, geometria, química, física, biologia, filosofia, sociologia, outros idiomas, educação física, artes, computação, redação e literatura.
+- **RN003** - Na criação de um fórum, tópico e evento, o usuário deve informar - título, descrição, área do conhecimento.
+- **RN004** - Na avaliação de um fórum,tópico ou comentário, o usuário poderá escolher entre dar um *Downvote* ou *Upvote*.
+- **RN005** - O sistema sempre deve exibir a resposta que resolveu o fórum no topo.
+- **RN006** - A política de exibição dos conteúdos no feed será baseado primeiramente pelas áreas de especialidade do usuário seguido da quantidade de votos de um conteúdo.
+- **RN007** - A quantidade de votos de um conteúdo será dado pela soma dos *Downvotes* e *Upvotes*.
+- **RN008** - A lógica de gameficação será feita por meio de um sistema de XP (pontos de experiência) e conquistas.
+  - **RN008.1** - Por cada resposta feita em um fórum, o usuário ganhará 5 de XP.    
+  - **RN008.2** - Por cada *Upvote* o usuário proprietário da resposta ganhará 1 de XP.
+  - **RN008.3** - Por cada *Downvote* o usuário proprietário da resposta perderá 1 de XP.
+  - **RN008.4** - Um usuário não poderá ter XP negativo.
+- **RN009** - O cadastro da biometria do usuário só poderá ser feito após ele logar no sistema pela primeira vez.
+
+## 4. Protótipo de alta fidelidade
+
+<iframe style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FRxqUu2GsWPr4c901Y6pel4%2FMindHub-Prot%25C3%25B3tipo%3Ftype%3Ddesign%26node-id%3D54496%253A66%26mode%3Ddesign%26t%3DWI4dDqNFUGMsO40I-1" allowfullscreen={"true"}></iframe>
+
+O protótipo acima foi construído para exemplificar e validar os requisitos elicitados.
