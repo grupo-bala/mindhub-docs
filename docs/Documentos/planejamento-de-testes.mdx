@@ -4,9 +4,11 @@ sidebar_position: 5
 
 # Planejamento de Testes
 
-| Data       | Versão       | Descrição                     | 
-|------------|--------------|-------------------------------|
-| 01/09/2023 | 0.1          | Criação do documento          |
+| Data       | Versão       | Descrição                        | 
+|------------|--------------|----------------------------------|
+| 01/09/2023 | 0.1          | Criação do documento             |
+| 02/10/2023 | 0.2          | Adição de seções de planejamento |
+| 03/10/2023 | 0.3          | Adição de seção de coleta de dados |
 
 ## 1. Introdução
 
@@ -24,3 +26,19 @@ Os testes de aceitação devem ser escritos usando BDD (Behavior-Driven Developm
 Os testes unitários são os testes mais básicos e são realizados para verificar o comportamento de uma unidade de código. No caso do sistema MindHub, os testes unitários devem ser realizados para verificar o comportamento dos componentes individuais do sistema, como os controladores, serviços e modelos.
 
 Os testes unitários devem ser escritos usando TDD (Test-Driven Development). O TDD é uma metodologia de desenvolvimento de software que consiste em escrever os testes antes de implementar o código. Isso ajuda a garantir que o código seja escrito de forma testável e que os testes sejam completos.
+
+## 4. Planejamento de implementação
+
+O desenvolvimento segue um processo ágil, baseado em princípios do Scrum e XP, dessa forma, os testes são implementados seguindo o TDD, sendo escritos antes das funcionalidades e de maneira contínua durante todas as sprints.
+
+## 5. Planejamento de execução
+
+Ainda de acordo com os princípios ágeis, em especial do XP, o projeto utiliza integração contínua no repositório remoto. Uma pipeline automática é configurada para executar os testes unitários a cada atualização no repositório. Dessa forma, os testes são continuamente e diariamente executados no projeto.
+
+Localmente é utilizado a ferramenta *Husky* para gerenciar hooks do git, comandos executados antes de alguma operação ser executada no repositório. O projeto usa essa ferramenta para impedir que sejam enviadas atualizações para o repositório caso os testes falhem localmente.
+
+## 6. Coleta de dados e métricas
+
+A pipeline de integração contínua configurada no repositório remoto automaticamente gera a cobertura de testes do projeto a cada atualização, e mantém os dados resultantes hospedados em uma [página web](https://grupo-bala.github.io/mindhub-back/) no mesmo domínio do reposiório.
+
+A cobertura fornece uma boa métrica de qualidade, mas por existirem fatores além do alcance dos desenvolvedores no código total do projeto, por exemplo a injeção de dependências gerenciada por frameworks, é importante analisar principalmente a cobertura de funções, linhas e comandos, já que existem caminhos que apenas as bibliotecas executam e não podem ou não valem a pena serem testados.
