@@ -13,6 +13,7 @@ toc_max_heading_level: 4
 | 29/08/2023 | 0.4          | Adição dos requisitos do evento e regras de negócios |
 | 01/09/2023 | 0.5          | Adição dos requisitos não funcionais |
 | 18/09/2023 | 1.0          | Agrupamento dos requisitos CRUD e Postagem |
+| 16/11/2023 | 2.0          | Alteração nos requisitos de comentários |
 
 ## 1. Introdução
 
@@ -63,7 +64,7 @@ Uma **Postagem** engloba **Fórum**, **Tópico** e **Evento**.
   - **RF001** - O sistema deve permitir o cadastro de usuários. **(Essencial)**
   - **RF002** - O sistema deve permitir o login de usuários. **(Essencial)**
   - **RF003** - O sistema deve coletar as principais áreas de especialidade do usuário. **(Essencial)**
-  - **RF004** - O sistema deve permitir que o usuário avalie comentários. **(Essencial)**
+  - **RF004** - O sistema deve permitir que o usuário avalie comentários primários. **(Essencial)**
   - **RF005** - O sistema deve permitir que o usuário se autentique usando a biometria. **(Desejável)**
   - **RF006** - O sistema deve permitir que o usuários mantenham um comentário em uma postagem. **(Essencial)**
     - **RF006.1** - O sistema deve permitir que usuários mantenham comentários em relação a outro comentário. **(Esssencial)**
@@ -92,7 +93,7 @@ Uma **Postagem** engloba **Fórum**, **Tópico** e **Evento**.
   - **RF019** - O sistema deve possuir um feed onde exibirá os conteúdos.
       - **RF019.1** - O sistema deve exibir uma lista de postagens baseadas na(s) especialidade(s) do usuário. **(Essencial)**
       - **RF019.2** - O sistema deve exibir uma lista de fóruns baseados na(s) especialidade(s) do usuário. **(Essencial)**
-  - **RF020** - O sistema deve permitir que o usuário filtre conteúdos por categoria e ou título. **(Essencial)**
+  - **RF020** - O sistema deve permitir que o usuário filtre conteúdos por categoria e ou título. **(Desejável)**
 
 #### 3.1.6. Perfil
   - **RF021** - O sistema deve exibir as informações do usuário. **(Essencial)**
@@ -136,7 +137,7 @@ As seguintes regras de negócio definem a lógica dos requisitos do sistema, esp
 - **RN001** - As informações de um usuário devem ser conhecidas pelo sistema, sendo elas - nome completo, e-mail, áreas de especialidade, meio de contato principal.
 - **RN002** - As áreas de especialidade são definidas por - matemática, português, história, geografia, inglês, espanhol, geometria, química, física, biologia, filosofia, sociologia, outros idiomas, educação física, artes, computação, redação e literatura.
 - **RN003** - Na criação de um fórum, tópico e evento, o usuário deve informar - título, descrição, área do conhecimento.
-- **RN004** - Na avaliação de um fórum,tópico ou comentário, o usuário poderá escolher entre dar um *Downvote* ou *Upvote*.
+- **RN004** - Na avaliação de um fórum,tópico ou comentário primário, o usuário poderá escolher entre dar um *Downvote* ou *Upvote*.
 - **RN005** - O sistema sempre deve exibir a resposta que resolveu o fórum no topo.
 - **RN006** - A política de exibição dos conteúdos no feed será baseado primeiramente pelas áreas de especialidade do usuário seguido da quantidade de votos de um conteúdo.
 - **RN007** - A quantidade de votos de um conteúdo será dado pela soma dos *Downvotes* e *Upvotes*.
