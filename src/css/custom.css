@@ -41,3 +41,7 @@ table {
   display: table;
   width: 100%;
 }
+
+img {
+  background-color: white;
+}
